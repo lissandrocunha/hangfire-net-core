@@ -1,0 +1,18 @@
+{
+  "Assembly": {
+    "Nome": "helloworld", // nome do job onde será armazenado no Hangfire, sem espações ou acentuação (ex: [a-z][0-9]).
+    "LogLevel": "Debug", // nível de informação que será considerado nos logs.
+    "DLL": "Hangfire.Job.HelloWorld.dll", // nome da dll que implementa a classe HangfireJob.
+    "CRON": " */10 23-23 * * 1-5 ", // informação de execução de Jobs do tipo RecurringJob (true).
+    "Queue": "default", // fila que o job faz parte.
+    "LogMethod": [ "sentry", "file" ], // tipos de método de log (sentry ou file). Se for do tipo Sentry deverá conter as informações da TAG "Sentry" (exemplo abaixo)
+    "RecurringJob": true, // True para que o Job seja executado contínuamente levando em consideração as configurações de CRON.
+    "ConcurrentExecution": false // True(default) permite a execução de mais de uma instância do job, False se já existir uma instancia do job a nova não será executada
+  },
+  //"Sentry": {
+  //  "Dsn": "url", // url do projeto Sentry, obrigatório!
+  //  "Release": "v 1.0.0", // campo opcional
+  //  "Environment": "Development", // campo opcional
+  //  "LogLevel": "Error" // campo opcional, se não for informado será levado em consideração o LogLevel informado em "Assembly"
+  //}
+}
